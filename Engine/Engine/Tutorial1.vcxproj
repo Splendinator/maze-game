@@ -41,7 +41,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\GLEW\include;..\..\SOIL;$(IncludePath);../../NCLGL</IncludePath>
+    <IncludePath>..\..\GLEW\include;..\..\SOIL;$(IncludePath);../../NCLGL;../../reactphysics3d/src</IncludePath>
     <LibraryPath>..\..\GLEW\lib\$(Configuration);..\..\SOIL\$(Configuration)\;..\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

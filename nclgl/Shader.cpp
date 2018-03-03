@@ -25,7 +25,10 @@ Shader ::~Shader(void) {
 		glDeleteShader(objects[i]);
 	}
 	glDeleteProgram(program);
-}GLuint Shader::GenerateShader(string from, GLenum type) {
+}
+
+
+GLuint Shader::GenerateShader(string from, GLenum type) {
 	cout << " Compiling Shader ... " << endl;
 
 	string load;
@@ -55,7 +58,10 @@ Shader ::~Shader(void) {
 	cout << " Compiling success !" << endl << endl;
 	loadFailed = false;
 	return shader;
-}bool Shader::LoadShaderFile(string from, string & into) {
+}
+
+
+bool Shader::LoadShaderFile(string from, string & into) {
 	ifstream file;
 	string temp;
 
@@ -75,11 +81,17 @@ Shader ::~Shader(void) {
 	cout << into << endl << endl;
 	cout << "Loaded shader text!" << endl << endl;
 	return true;
-}void Shader::SetDefaultAttributes() {
+}
+
+
+void Shader::SetDefaultAttributes() {
 	glBindAttribLocation(program, VERTEX_BUFFER, "position");
 	glBindAttribLocation(program, COLOUR_BUFFER, "colour");
 	glBindAttribLocation(program, TEXTURE_BUFFER, "texCoord");
-}bool Shader::LinkProgram() {
+}
+
+
+bool Shader::LinkProgram() {
 	if (loadFailed) {
 		return false;
 	}
@@ -88,4 +100,4 @@ Shader ::~Shader(void) {
 	GLint code;
 	glGetProgramiv(program, GL_LINK_STATUS, &code);
 	return code == GL_TRUE ? true : false;
-}
+}

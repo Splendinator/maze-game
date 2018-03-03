@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{46237E1A-6739-33F3-92EE-E621AFC474EE}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>reactphysics3d</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">reactphysics3d.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">reactphysics3d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Dominic\Desktop\rp3-bin\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">reactphysics3d.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">reactphysics3d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Dominic\Desktop\rp3-bin\lib\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">reactphysics3d.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">reactphysics3d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Dominic\Desktop\rp3-bin\lib\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">reactphysics3d.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">reactphysics3d</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\configuration.h" />
+    <ClInclude Include="src\decimal.h" />
+    <ClInclude Include="src\reactphysics3d.h" />
+    <ClInclude Include="src\body\Body.h" />
+    <ClCompile Include="src\body\Body.cpp" />
+    <ClInclude Include="src\body\CollisionBody.h" />
+    <ClCompile Include="src\body\CollisionBody.cpp" />
+    <ClInclude Include="src\body\RigidBody.h" />
+    <ClCompile Include="src\body\RigidBody.cpp" />
+    <ClInclude Include="src\collision\broadphase\BroadPhaseAlgorithm.h" />
+    <ClCompile Include="src\collision\broadphase\BroadPhaseAlgorithm.cpp" />
+    <ClInclude Include="src\collision\broadphase\DynamicAABBTree.h" />
+    <ClCompile Include="src\collision\broadphase\DynamicAABBTree.cpp" />
+    <ClInclude Include="src\collision\narrowphase\CollisionDispatch.h" />
+    <ClInclude Include="src\collision\narrowphase\DefaultCollisionDispatch.h" />
+    <ClCompile Include="src\collision\narrowphase\DefaultCollisionDispatch.cpp" />
+    <ClInclude Include="src\collision\narrowphase\EPA\EdgeEPA.h" />
+    <ClCompile Include="src\collision\narrowphase\EPA\EdgeEPA.cpp" />
+    <ClInclude Include="src\collision\narrowphase\EPA\EPAAlgorithm.h" />
+    <ClCompile Include="src\collision\narrowphase\EPA\EPAAlgorithm.cpp" />
+    <ClInclude Include="src\collision\narrowphase\EPA\TriangleEPA.h" />
+    <ClCompile Include="src\collision\narrowphase\EPA\TriangleEPA.cpp" />
+    <ClInclude Include="src\collision\narrowphase\EPA\TrianglesStore.h" />
+    <ClCompile Include="src\collision\narrowphase\EPA\TrianglesStore.cpp" />
+    <ClInclude Include="src\collision\narrowphase\GJK\Simplex.h" />
+    <ClCompile Include="src\collision\narrowphase\GJK\Simplex.cpp" />
+    <ClInclude Include="src\collision\narrowphase\GJK\GJKAlgorithm.h" />
+    <ClCompile Include="src\collision\narrowphase\GJK\GJKAlgorithm.cpp" />
+    <ClInclude Include="src\collision\narrowphase\NarrowPhaseAlgorithm.h" />
+    <ClCompile Include="src\collision\narrowphase\NarrowPhaseAlgorithm.cpp" />
+    <ClInclude Include="src\collision\narrowphase\SphereVsSphereAlgorithm.h" />
+    <ClCompile Include="src\collision\narrowphase\SphereVsSphereAlgorithm.cpp" />
+    <ClInclude Include="src\collision\narrowphase\ConcaveVsConvexAlgorithm.h" />
+    <ClCompile Include="src\collision\narrowphase\ConcaveVsConvexAlgorithm.cpp" />
+    <ClInclude Include="src\collision\shapes\AABB.h" />
+    <ClCompile Include="src\collision\shapes\AABB.cpp" />
+    <ClInclude Include="src\collision\shapes\ConvexShape.h" />
+    <ClCompile Include="src\collision\shapes\ConvexShape.cpp" />
+    <ClInclude Include="src\collision\shapes\ConcaveShape.h" />
+    <ClCompile Include="src\collision\shapes\ConcaveShape.cpp" />
+    <ClInclude Include="src\collision\shapes\BoxShape.h" />
+    <ClCompile Include="src\collision\shapes\BoxShape.cpp" />
+    <ClInclude Include="src\collision\shapes\CapsuleShape.h" />
+    <ClCompile Include="src\collision\shapes\CapsuleShape.cpp" />
+    <ClInclude Include="src\collision\shapes\CollisionShape.h" />
+    <ClCompile Include="src\collision\shapes\CollisionShape.cpp" />
+    <ClInclude Include="src\collision\shapes\ConeShape.h" />
+    <ClCompile Include="src\collision\shapes\ConeShape.cpp" />
+    <ClInclude Include="src\collision\shapes\ConvexMeshShape.h" />
+    <ClCompile Include="src\collision\shapes\ConvexMeshShape.cpp" />
+    <ClInclude Include="src\collision\shapes\CylinderShape.h" />
+    <ClCompile Include="src\collision\shapes\CylinderShape.cpp" />
+    <ClInclude Include="src\collision\shapes\SphereShape.h" />
+    <ClCompile Include="src\collision\shapes\SphereShape.cpp" />
+    <ClInclude Include="src\collision\shapes\TriangleShape.h" />
+    <ClCompile Include="src\collision\shapes\TriangleShape.cpp" />
+    <ClInclude Include="src\collision\shapes\ConcaveMeshShape.h" />
+    <ClCompile Include="src\collision\shapes\ConcaveMeshShape.cpp" />
+    <ClInclude Include="src\collision\shapes\HeightFieldShape.h" />
+    <ClCompile Include="src\collision\shapes\HeightFieldShape.cpp" />
+    <ClInclude Include="src\collision\RaycastInfo.h" />
+    <ClCompile Include="src\collision\RaycastInfo.cpp" />
+    <ClInclude Include="src\collision\ProxyShape.h" />
+    <ClCompile Include="src\collision\ProxyShape.cpp" />
+    <ClInclude Include="src\collision\TriangleVertexArray.h" />
+    <ClCompile Include="src\collision\TriangleVertexArray.cpp" />
+    <ClInclude Include="src\collision\TriangleMesh.h" />
+    <ClCompile Include="src\collision\TriangleMesh.cpp" />
+    <ClInclude Include="src\collision\CollisionDetection.h" />
+    <ClCompile Include="src\collision\CollisionDetection.cpp" />
+    <ClInclude Include="src\collision\CollisionShapeInfo.h" />
+    <ClInclude Include="src\collision\ContactManifold.h" />
+    <ClCompile Include="src\collision\ContactManifold.cpp" />
+    <ClInclude Include="src\collision\ContactManifoldSet.h" />
+    <ClCompile Include="src\collision\ContactManifoldSet.cpp" />
+    <ClInclude Include="src\constraint\BallAndSocketJoint.h" />
+    <ClCompile Include="src\constraint\BallAndSocketJoint.cpp" />
+    <ClInclude Include="src\constraint\ContactPoint.h" />
+    <ClCompile Include="src\constraint\ContactPoint.cpp" />
+    <ClInclude Include="src\constraint\FixedJoint.h" />
+    <ClCompile Include="src\constraint\FixedJoint.cpp" />
+    <ClInclude Include="src\constraint\HingeJoint.h" />
+    <ClCompile Include="src\constraint\HingeJoint.cpp" />
+    <ClInclude Include="src\constraint\Joint.h" />
+    <ClCompile Include="src\constraint\Joint.cpp" />
+    <ClInclude Include="src\constraint\SliderJoint.h" />
+    <ClCompile Include="src\constraint\SliderJoint.cpp" />
+    <ClInclude Include="src\engine\CollisionWorld.h" />
+    <ClCompile Include="src\engine\CollisionWorld.cpp" />
+    <ClInclude Include="src\engine\ConstraintSolver.h" />
+    <ClCompile Include="src\engine\ConstraintSolver.cpp" />
+    <ClInclude Include="src\engine\ContactSolver.h" />
+    <ClCompile Include="src\engine\ContactSolver.cpp" />
+    <ClInclude Include="src\engine\DynamicsWorld.h" />
+    <ClCompile Include="src\engine\DynamicsWorld.cpp" />
+    <ClInclude Include="src\engine\EventListener.h" />
+    <ClInclude Include="src\engine\Impulse.h" />
+    <ClInclude Include="src\engine\Island.h" />
+    <ClCompile Include="src\engine\Island.cpp" />
+    <ClInclude Include="src\engine\Material.h" />
+    <ClCompile Include="src\engine\Material.cpp" />
+    <ClInclude Include="src\engine\OverlappingPair.h" />
+    <ClCompile Include="src\engine\OverlappingPair.cpp" />
+    <ClInclude Include="src\engine\Profiler.h" />
+    <ClCompile Include="src\engine\Profiler.cpp" />
+    <ClInclude Include="src\engine\Timer.h" />
+    <ClCompile Include="src\engine\Timer.cpp" />
+    <ClInclude Include="src\mathematics\mathematics.h" />
+    <ClInclude Include="src\mathematics\mathematics_functions.h" />
+    <ClCompile Include="src\mathematics\mathematics_functions.cpp" />
+    <ClInclude Include="src\mathematics\Matrix2x2.h" />
+    <ClCompile Include="src\mathematics\Matrix2x2.cpp" />
+    <ClInclude Include="src\mathematics\Matrix3x3.h" />
+    <ClCompile Include="src\mathematics\Matrix3x3.cpp" />
+    <ClInclude Include="src\mathematics\Quaternion.h" />
+    <ClCompile Include="src\mathematics\Quaternion.cpp" />
+    <ClInclude Include="src\mathematics\Transform.h" />
+    <ClCompile Include="src\mathematics\Transform.cpp" />
+    <ClInclude Include="src\mathematics\Vector2.h" />
+    <ClCompile Include="src\mathematics\Vector2.cpp" />
+    <ClInclude Include="src\mathematics\Vector3.h" />
+    <ClInclude Include="src\mathematics\Ray.h" />
+    <ClCompile Include="src\mathematics\Vector3.cpp" />
+    <ClInclude Include="src\memory\MemoryAllocator.h" />
+    <ClCompile Include="src\memory\MemoryAllocator.cpp" />
+    <ClInclude Include="src\memory\Stack.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Dominic\Desktop\rp3-bin\ZERO_CHECK.vcxproj">
+      <Project>{89F023D9-4DAA-3878-A872-73A039F23448}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
