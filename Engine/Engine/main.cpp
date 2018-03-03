@@ -2,9 +2,14 @@
 
 #include "Window.h"
 #include "Renderer.h"
+#include "Camera.h"
+#include "Entity.h"
 
-Window window;
-Renderer renderer;
+Window window = Window("My First OpenGL 3 Triangle!", 800, 600, false);
+Renderer renderer = Renderer(window);
+Camera c;
+
+
 
 
 
@@ -24,17 +29,6 @@ int gameLoop() {
 
 
 int startUp() {
-	window = Window("My First OpenGL 3 Triangle!", 800, 600, false);
-
-	if (!window.HasInitialised()) {
-		return -1;
-	}
-
-	renderer = Renderer(window);
-	
-	if (!renderer.HasInitialised()) {
-		return -1;
-	}
 
 	return gameLoop();
 

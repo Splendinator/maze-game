@@ -7,13 +7,17 @@ Mesh::Mesh(void) {
 	glGenVertexArrays(1, &arrayObject);
 
 	numVertices = 0;
-	texture = 0;	numIndices = 0;
+	texture = 0;
+	numIndices = 0;
+
 	indices = NULL;
 	vertices = NULL;
 	colours = NULL;
 	type = GL_TRIANGLES;
 	textureCoords = NULL;
-}Mesh ::~Mesh(void) {
+}
+
+Mesh ::~Mesh(void) {
 	glDeleteVertexArrays(1, &arrayObject);
 	glDeleteBuffers(MAX_BUFFER, bufferObject);
 	glDeleteTextures(1, &texture);
@@ -21,7 +25,8 @@ Mesh::Mesh(void) {
 	delete[] vertices;
 	delete[] colours;
 	delete[] textureCoords;
-	delete[] indices;
+	delete[] indices;
+
 }
 
 Mesh * Mesh::GenerateCube() {
@@ -46,7 +51,8 @@ Mesh * Mesh::GenerateCube() {
 	m -> BufferData();
 
 	return m;
-}
+}
+
 
 void Mesh::BufferData() {
 	glBindVertexArray(arrayObject);
@@ -64,7 +70,8 @@ void Mesh::BufferData() {
 			textureCoords, GL_STATIC_DRAW);
 		glVertexAttribPointer(TEXTURE_BUFFER, 2, GL_FLOAT, GL_FALSE, 0, 0);
 		glEnableVertexAttribArray(TEXTURE_BUFFER);
-	}
+	}
+
 	if (indices) {
 		glGenBuffers(1, &bufferObject[INDEX_BUFFER]);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,
@@ -82,7 +89,9 @@ void Mesh::BufferData() {
 		glEnableVertexAttribArray(COLOUR_BUFFER);
 	}
 	glBindVertexArray(0);
-}void Mesh::Draw() {
+}
+
+void Mesh::Draw() {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glBindVertexArray(arrayObject);
 
@@ -94,5 +103,7 @@ void Mesh::BufferData() {
 	}
 
 	glBindVertexArray(0);
-	glBindTexture(GL_TEXTURE_2D, 0);
-}
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+}
+
