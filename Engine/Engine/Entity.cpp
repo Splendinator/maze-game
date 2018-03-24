@@ -1,5 +1,5 @@
 #include "Entity.h"
-
+#include "Renderer.h"
 
 
 Entity::Entity()
@@ -7,13 +7,16 @@ Entity::Entity()
 	mesh = nullptr;
 }
 
-Entity::Entity(Mesh *m)
+Entity::Entity(Mesh *m, Renderer* r)
 {
 	mesh = m;
+	renderer = r;
+	r->addEntity(this);
 }
 
 Entity::~Entity()
 {
+	renderer->removeEntity(this);
 }
 
 

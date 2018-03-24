@@ -1,17 +1,18 @@
 #pragma once
+
 #include "Entity.h"
 #include "Camera.h"
 
-class PlayerEntity : public Entity
+class EntityPlayer : public Entity
 {
 
 private: 
 	Camera camera;
 
 public:
-	PlayerEntity();
-	PlayerEntity(Mesh *);
-	~PlayerEntity();
+	EntityPlayer();
+	EntityPlayer(Mesh *, Renderer *);
+	~EntityPlayer();
 
 
 	void move(Vector3);

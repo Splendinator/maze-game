@@ -42,7 +42,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>..\..\GLEW\include;..\..\SOIL;$(IncludePath);../../NCLGL;../../reactphysics3d/src</IncludePath>
-    <LibraryPath>..\..\GLEW\lib\$(Configuration);..\..\SOIL\$(Configuration)\;..\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\GLEW\lib\$(Configuration);..\..\SOIL\$(Configuration)\;..\$(Configuration)\;$(LibraryPath);..\..\reactphysics3d\Debug</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>..\..\GLEW\include;..\..\SOIL\;$(IncludePath)</IncludePath>
@@ -73,14 +73,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bin.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="PlayerEntity.cpp" />
+    <ClCompile Include="EntityPhysics.cpp" />
+    <ClCompile Include="EntityPlayer.cpp" />
+    <ClCompile Include="IO.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bin.h" />
     <ClInclude Include="Entity.h" />
-    <ClInclude Include="PlayerEntity.h" />
+    <ClInclude Include="EntityPhysics.h" />
+    <ClInclude Include="EntityPlayer.h" />
+    <ClInclude Include="IO.h" />
     <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <ItemGroup>

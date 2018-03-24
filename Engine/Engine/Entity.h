@@ -4,11 +4,13 @@
 #include "Vector3.h"
 #include "Matrix4.h"
 
+class Renderer;
+
 class Entity
 {
 public:
 	Entity();
-	Entity(Mesh *m);
+	Entity(Mesh *m, Renderer *r);
 	~Entity();
 
 	virtual void move(Vector3);
@@ -16,11 +18,14 @@ public:
 	virtual void scale(Vector3);
 
 	Mesh *getMesh() { return mesh; }
-	Matrix4 getModelMatrix() { return modelMatrix; }
+	virtual Matrix4 getModelMatrix() { return modelMatrix; }
 
 
 private:
 	Mesh *mesh; //Mesh used.
+
+	Renderer *renderer;	//Renderer used.
+	vector<Entity *>::iterator rendererIndex; //Index of mesh in renderer.
 
 protected:
 	Matrix4 modelMatrix; //Model matrix
