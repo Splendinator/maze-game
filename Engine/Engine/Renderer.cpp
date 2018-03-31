@@ -41,13 +41,10 @@ void Renderer::RenderScene()	{
 
 		modelMatrix = (**it).getModelMatrix();
 		
-		cout << "A";
 
 		UpdateShaderMatrices();
 		(**it).getMesh()->Draw();
 	}
-
-	cout << "B";
 
 	
 	

@@ -21,14 +21,25 @@ public:
 	void rotate(Vector3 around, float deg);
 	void scale(Vector3);
 
-
+	void applySubSystems() { applyRenderer(); applyPhysics(); }
+	Vector3 getScale() { return meshScale; }
 
 private:
 	
 	rp3d::DynamicsWorld *world;
 	rp3d::ConvexShape *collisionShape;
 	rp3d::Transform transform;
-
+	
 	Vector3 meshScale;
+
+protected:
+
+	void applyPhysics() { 
+		rp3d::Quaternion q = rp3d::Quaternion::identity();
+		rp3d::Vector3 v;
+		v.setToZero();
+		body = world->createRigidBody(rp3d::Transform(v,q));
+		body->addCollisionShape(collisionShape, rp3d::Transform(v, q), 20);
+	}
 };
 

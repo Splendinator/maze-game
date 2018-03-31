@@ -1,37 +1,54 @@
 #include "Bin.h"
+#include "EntityPhysics.h"
 
 template <class T>
-Bin<T>::Bin(size_t size = 1, size_t elements = 10)
+Bin<T>::Bin()
+{
+}
+
+
+template <class T>
+Bin<T>::Bin(size_t size, size_t elements)
 {
 	this->size = size;
 	this->elements = elements;
-	inUse = bool[elements];
+	inUse = new bool[elements];
 	v = vector<T *>(elements);
 	start = malloc(size * elements);
 	for (int i = 0; i < elements; i++) {
 		inUse[i] = false;
 	}
+	v.clear();
 }
 
 template <class T>
 Bin<T>::~Bin()
 {
+	cout << "DELETE";
+	delete[] inUse;
+	free(start);
 }
 
 template<class T>
 T * Bin<T>::freeSpot()
 {
 	for (int i = 0; i < elements; i++) {
-		if (!inUse[i]) return (T *)(start + i*size);
+		if (!inUse[i]) 
+			return (T *)((unsigned long long int)start + i*size);
 	}
+	cout << "FULL";
 	return nullptr;
 }
 
 template<class T>
 T *Bin<T>::add(const T &element) {
-	if (T *pointer = freeSpot()) {
-		memcpy(pointer, &element, sizeof(*element));
+	T *pointer = freeSpot();
+
+	if (pointer) {
+		memcpy(pointer, &element, sizeof(element));
 		v.insert(v.end(), pointer);
+		inUse[pointer - start] = true;
+		
 	}
 	return pointer;
 }
@@ -39,5 +56,8 @@ T *Bin<T>::add(const T &element) {
 template<class T>
 void Bin<T>::remove(T *element)
 {
-	v.erase(0);
+	//v.erase(0);
 }
+
+template class Bin<EntityPhysics>;
+template class Bin<int>;

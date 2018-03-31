@@ -13,11 +13,11 @@ EntityPhysics::EntityPhysics(Mesh *mesh, Renderer *r, rp3d::DynamicsWorld *world
 	this->collisionShape = collisionShape;
 	
 	rp3d::Quaternion q = rp3d::Quaternion::identity();
-
 	rp3d::Vector3 v;
 	v.setToZero();
 
 	body = world->createRigidBody(rp3d::Transform(v,q));
+	body->addCollisionShape(collisionShape, rp3d::Transform(v, q), 20);
 
 	meshScale = Vector3(1, 1, 1);
 }
@@ -31,10 +31,12 @@ EntityPhysics::~EntityPhysics()
 
 Matrix4 EntityPhysics::getModelMatrix()
 {
-	float matrix[16];
+	Matrix4 m4;
+	m4 = m4 * Matrix4::Scale(meshScale);
+	float matrix[16] = {};
 	body->getTransform().getOpenGLMatrix(matrix);
 
-	return matrix;
+	return m4 * matrix;
 }
 
 

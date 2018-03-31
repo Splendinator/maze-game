@@ -1,4 +1,5 @@
 #pragma once
+#include "reactphysics3d.h"	//Has to go before NCLGL or I get errors for redefining Vector3
 #include <vector>
 #include <stdlib.h>
 
@@ -7,10 +8,11 @@ class Bin
 {
 public:
 	//Up to you to get the size of each element right
-	Bin(size_t size = 1, size_t elements = 10);
+	Bin();
+	Bin(size_t size, size_t elements);
 	~Bin();
 
-	std::vector<T *> getVector() { return v; }
+	std::vector<T *> *getVector() { return &v; }
 
 	//void *operator [] (size_t index) { return start + size*index; }
 	T *add(const T &element);	
@@ -22,7 +24,7 @@ private:
 	size_t size;	//Size of each element
 	size_t elements;	//Number of elements
 	void *start;	//Start of bin	
-	bool *inUse;	//Is this element in use? (quicker than dynamically working it out)
+	bool *inUse;	//Is this element in use?
 	std::vector<T *> v;	//Vector of pointers
 
 	T *freeSpot();
@@ -30,4 +32,5 @@ private:
 
 
 };
+
 

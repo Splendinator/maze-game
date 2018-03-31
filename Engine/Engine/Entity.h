@@ -1,5 +1,6 @@
 #pragma once
 
+#include "reactphysics3d.h"	//Has to go before NCLGL or I get errors for redefining Vector3
 #include "Mesh.h"
 #include "Vector3.h"
 #include "Matrix4.h"
@@ -20,16 +21,19 @@ public:
 	Mesh *getMesh() { return mesh; }
 	virtual Matrix4 getModelMatrix() { return modelMatrix; }
 
+	virtual void applySubSystems() { applyRenderer(); }
 
 private:
 	Mesh *mesh; //Mesh used.
 
-	Renderer *renderer;	//Renderer used.
 	vector<Entity *>::iterator rendererIndex; //Index of mesh in renderer.
 
+	
+
 protected:
+	Renderer *renderer;	//Renderer used.
 	Matrix4 modelMatrix; //Model matrix
 	
-	//Collision * col;
+	void applyRenderer();
 };
 

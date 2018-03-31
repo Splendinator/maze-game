@@ -35,3 +35,8 @@ void Entity::scale(Vector3 s)
 {
 	modelMatrix = modelMatrix * Matrix4::Scale(s);
 }
+
+void Entity::applyRenderer()
+{
+	renderer->addEntity(this);
+}
