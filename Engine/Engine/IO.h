@@ -14,18 +14,19 @@ struct node {
 //Maze gen constants.
 const static int MAP_SIZE = 27;	//Has to be odd;
 const int nodes = (MAP_SIZE - 1) / 2;	//Nodes needed;
-const static int AROUND_CHANCE = 2;	//Chance to go around the ring;
-const static int INWARD_CHANCE = 1; //Chance to go inward to the next ring;
+const static int AROUND_CHANCE = 1;	//Chance to go around the ring
+const static int INWARD_CHANCE = 1; //Chance to go inward to the next ring
 
 class IO
 {
 public:
 	IO();
 
+	//Not used, random is better.
 	static vector<Entity> readMap(string filename);
 
-	
-	static void genMaze(Bin<EntityPhysics> *bin, EntityPhysics e, unsigned int seed);
+	//Generates a random maze 
+	static void genMaze(Bin<EntityPhysics> *bin, const EntityPhysics &e, unsigned int seed);
 
 	~IO();
 };

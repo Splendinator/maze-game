@@ -18,7 +18,7 @@ public:
 	virtual void rotate(Vector3 around, float deg);
 	virtual void scale(Vector3);
 
-	Mesh *getMesh() { return mesh; }
+	Mesh *getMesh() const { return mesh; }
 	virtual Matrix4 getModelMatrix() { return modelMatrix; }
 
 	virtual void applySubSystems() { applyRenderer(); }

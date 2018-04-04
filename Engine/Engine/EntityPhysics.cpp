@@ -32,11 +32,11 @@ EntityPhysics::~EntityPhysics()
 Matrix4 EntityPhysics::getModelMatrix()
 {
 	Matrix4 m4;
-	m4 = m4 * Matrix4::Scale(meshScale);
+	
 	float matrix[16] = {};
 	body->getTransform().getOpenGLMatrix(matrix);
 
-	return m4 * matrix;
+	return (Matrix4)matrix * Matrix4::Scale(meshScale);
 }
 
 

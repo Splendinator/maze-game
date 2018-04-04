@@ -7,63 +7,79 @@
 #include "Bin.h"
 #include "Window.h"
 #include "Renderer.h"
+#include "Input.h"
+#include <chrono>
 
+//Timer
+const float PHYSICS_DELTA = 0.008; //Time in seconds between each physics calculation.
 
-Window window = Window("My First OpenGL 3 Triangle!", 800, 600, false);
+std::chrono::duration<int, std::ratio<1, 1000000>> timeStep = std::chrono::duration<int, std::ratio<1, 1000000>>((int)(PHYSICS_DELTA*1000000));
+
+Window window = Window("My First OpenGL 3 Triangle!", 1600, 900, false);
 Renderer renderer = Renderer(window);
 Camera c;
 
-Mesh *cubeMesh = Mesh::GenerateCube();
-rp3d::CylinderShape *playerCollider = new rp3d::CylinderShape(1,1);
-rp3d::BoxShape *wallCollider = new rp3d::BoxShape(rp3d::Vector3(1, 1, 1));
-rp3d::BoxShape *groundCollider = new rp3d::BoxShape(rp3d::Vector3(100, 20, 100));
 
-// Create the dynamics world 
-rp3d::DynamicsWorld world(rp3d::Vector3(0.0, -9.81, 0.0));
+Mesh *wallMesh = Mesh::GenerateCube(1);
+Mesh *groundMesh = Mesh::GenerateCube(1);
+rp3d::CapsuleShape *playerCollider = new rp3d::CapsuleShape(2,3);
+rp3d::BoxShape *wallCollider = new rp3d::BoxShape(rp3d::Vector3(12, 12, 12));
+rp3d::BoxShape *groundCollider = new rp3d::BoxShape(rp3d::Vector3(1000, 20, 1000));
+rp3d::BoxShape *cubeCollider = new rp3d::BoxShape(rp3d::Vector3(2, 2, 2));
 
-EntityPlayer player = EntityPlayer(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)playerCollider,Vector3(0,2,0));
-EntityPhysics ground = EntityPhysics(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)groundCollider);
-EntityPhysics wall = EntityPhysics(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)wallCollider);
-EntityPhysics wall2 = EntityPhysics(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)wallCollider);
+//Create the dynamics world 
+rp3d::DynamicsWorld *world = new rp3d::DynamicsWorld(rp3d::Vector3(0.0, -9.81, 0.0));
+
+//EntityPhysics cube = EntityPhysics(wallMesh, &renderer, &world, (rp3d::ConvexShape *)cubeCollider);
+//EntityPhysics cube2 = EntityPhysics(wallMesh, &renderer, &world, (rp3d::ConvexShape *)cubeCollider);
+EntityPlayer *player = new EntityPlayer(wallMesh, &renderer, world, (rp3d::ConvexShape *)playerCollider,Vector3(0,1,0));
+EntityPhysics *ground = new EntityPhysics(groundMesh, &renderer, world, (rp3d::ConvexShape *)groundCollider);
+
+//Input subsystem
+Input input = Input(world, player);
 
 
 Bin<EntityPhysics> wallBin = Bin<EntityPhysics>(sizeof(EntityPhysics),10000);
 
 
 int shutDown() {
+	delete player;
+	cout << "hello";
+	
+
+	delete playerCollider;
+	delete wallCollider;
+	delete groundCollider;
+	delete cubeCollider;
+	
 	return 0;
 }
 
 
 int gameLoop() {
 
+	chrono::high_resolution_clock::time_point physTime = chrono::high_resolution_clock::now();
+	chrono::high_resolution_clock::time_point inputTime = chrono::high_resolution_clock::now();
+	chrono::high_resolution_clock::time_point currTime = chrono::high_resolution_clock::now();
 	while (window.UpdateWindow() && !Window::GetKeyboard()->KeyDown(KEYBOARD_ESCAPE)) {
+		
+		//Physics update
+		currTime = chrono::high_resolution_clock::now();
+		while (physTime < currTime) {
+			world->update(PHYSICS_DELTA);
+			player->body->setTransform(rp3d::Transform(player->body->getTransform().getPosition(), rp3d::Quaternion(0, 0, 0, 1))); //For some reason setting "angular dampening" over 1.0 causes reactPhysics3d to crash (even though documentation says it's fine); so this tacky line of code is needed to stop player rotation.
+			physTime += timeStep;
+		}
+
+		//Renderer update
 		renderer.RenderScene();
-		world.update(0.008f);
+	
+		//Input system
+		currTime = chrono::high_resolution_clock::now();
+		input.handleInput((float)(((currTime - inputTime).count()) * chrono::high_resolution_clock::period().num) / chrono::high_resolution_clock::period().den);
+		inputTime = currTime;
 		
 
-		//*** TEMP INPUT SYSTEM ***
-		if (Window::GetKeyboard()->KeyDown(KEYBOARD_W)) {
-			player.body->applyForceToCenterOfMass(rp3d::Vector3(0, 0, -600));
-		}
-		if (Window::GetKeyboard()->KeyDown(KEYBOARD_A)) {
-			player.body->applyForceToCenterOfMass(rp3d::Vector3(-600, 0, 0));
-		}
-		if (Window::GetKeyboard()->KeyDown(KEYBOARD_S)) {
-			player.body->applyForceToCenterOfMass(rp3d::Vector3(0, 0, 600));
-		}
-		if (Window::GetKeyboard()->KeyDown(KEYBOARD_D)) {
-			player.body->applyForceToCenterOfMass(rp3d::Vector3(600, 0, 0));
-		}
-		if (Window::GetKeyboard()->KeyDown(KEYBOARD_SPACE)) {
-			if (player.body->getLinearVelocity().y < 0.001) { player.body->applyForceToCenterOfMass(rp3d::Vector3(0, 12000, 0)); }
-		}
-		
-		if (sqrt(player.body->getLinearVelocity().x * player.body->getLinearVelocity().x + player.body->getLinearVelocity().z * player.body->getLinearVelocity().z) > 5) {
-			cout << "TOO FAST";
-			player.body->setLinearVelocity(rp3d::Vector3(player.body->getLinearVelocity().x/2, player.body->getLinearVelocity().y, player.body->getLinearVelocity().z/2));
-		}
-		//*************************
 	}
 
 	return shutDown();
@@ -72,56 +88,49 @@ int gameLoop() {
 int startUp() {
 	
 	// Change the number of iterations of the velocity solver 
-	world.setNbIterationsVelocitySolver(15);
+	world->setNbIterationsVelocitySolver(15);
 
 	// Change the number of iterations of the position solver 
-	world.setNbIterationsPositionSolver(8);
+	world->setNbIterationsPositionSolver(8);
 
-	cubeMesh->SetTexture(SOIL_load_OGL_texture("../../Textures/brick.jpg",SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0));
-
-
-	//cube = EntityPhysics(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)cubeCollider);
-	//cube2 = EntityPhysics(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)cubeCollider);
-	//ground = EntityPhysics(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)groundCollider);
-	//ground.scale(Vector3(0, 0, 0));
-	ground.body->setType(rp3d::STATIC);
-
-	//cube2.move(Vector3(0, 1.5, 0));
-	wall.scale(Vector3(1, 1, 1));
-	wall.move(Vector3(0, 4, -10));
-	wall2.move(Vector3(0, 1, -10));
-	//ground.move(Vector3(0, -8, 0));
-	ground.move(Vector3(0, -20, -10));
+	wallMesh->SetTexture(SOIL_load_OGL_texture("../../Textures/brick.jpg",SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0));
+	groundMesh->SetTexture(SOIL_load_OGL_texture("../../Textures/orange.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, 0));
 
 
-
-	player.body->setAngularDamping(1);	//Player can't rotate at all.
-	rp3d::Material m = player.body->getMaterial();
-	m.setFrictionCoefficient(5);	//Doesn't slide around
+	//PLAYER PHYSICS SETUP
+	player->body->setAngularDamping(1);	//Player can't rotate at all
+	player->body->setMass(20);
+	rp3d::Material m = player->body->getMaterial();
+	m.setFrictionCoefficient(0.2);	//Doesn't slide around
 	m.setBounciness(0);	//Doesn't bounce
-	player.body->setMaterial(m);
+	player->body->setMaterial(m);
+	player->scale(Vector3(1, 1, 1));
+	player->move(Vector3(22, 10, -15));
 
+	//GROUND PHYSICS SETUP
+	ground->scale(Vector3(405, 20, 405));
+	ground->body->setType(rp3d::STATIC);
+	ground->move(Vector3(405, -20, -405));
+	m = ground->body->getMaterial();
+	m.setFrictionCoefficient(100); //Don't want the player sliding everywhere; floor should be sticky.
+	m.setBounciness(0);	//Not bouncy
+	ground->body->setMaterial(m);
 
+	//MAZE GENERATION
+	EntityPhysics *wall = new EntityPhysics(wallMesh, &renderer, world, (rp3d::ConvexShape *)wallCollider);
+	wall->scale(Vector3(12, 12, 12));
+	m = wall->body->getMaterial();
+	m.setBounciness(0); //Brick Walls aren't bouncy
+	m.setFrictionCoefficient(0); //Or particularly slidey.
+	wall->body->setMaterial(m);
+	IO::genMaze(&wallBin, *wall, 1338);
+	delete wall;		//Why do I have to manually call this????? Shouldn't it leave scope?????
 
+	renderer.setPlayer(player);	//Let renderer know which player (camera) to use.
 
+	world->enableSleeping(true);
 
-	renderer.setPlayer(&player);
-
-	world.enableSleeping(false);
-	//cout << wallBin.getVector().size();
-
-	// Body
-	//body = world.createRigidBody(rp3d::Transform(rp3d::Vector3(0,0,0),rp3d::Quaternion()));
-
-	// Floor
-	//floorCollider = new rp3d::BoxShape(rp3d::Vector3(1000, 2, 1000));
-
-	
-	//IO::genMaze(&wallBin,EntityPhysics(cubeMesh, &renderer, &world, (rp3d::ConvexShape *)wallCollider), 1337);
-
-	
 	return gameLoop();
-
 }
 
 

@@ -24,7 +24,6 @@ Bin<T>::Bin(size_t size, size_t elements)
 template <class T>
 Bin<T>::~Bin()
 {
-	cout << "DELETE";
 	delete[] inUse;
 	free(start);
 }
@@ -36,7 +35,6 @@ T * Bin<T>::freeSpot()
 		if (!inUse[i]) 
 			return (T *)((unsigned long long int)start + i*size);
 	}
-	cout << "FULL";
 	return nullptr;
 }
 

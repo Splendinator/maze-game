@@ -16,6 +16,7 @@ Entity::Entity(Mesh *m, Renderer* r)
 
 Entity::~Entity()
 {
+
 	renderer->removeEntity(this);
 }
 
@@ -39,4 +40,5 @@ void Entity::scale(Vector3 s)
 void Entity::applyRenderer()
 {
 	renderer->addEntity(this);
+	
 }

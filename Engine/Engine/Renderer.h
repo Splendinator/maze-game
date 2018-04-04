@@ -27,10 +27,12 @@ public:
 	inline void SetPosition(Vector3 p) { position = p; }
 
 	void setPlayer(EntityPlayer *player) { this->player = player; }
-	void addEntity(Entity *e) { entities.push_back(e); }
+	void addEntity(Entity *e) { cout << "ADD: " << e << endl; entities.push_back(e); }
 	void removeEntity(Entity *e) {
+		cout << "THIS: " << e << endl;
 		for (vector<Entity *>::iterator it = entities.begin(); it != entities.end(); ++it) {
-			if (*it == e) { entities.erase(it); break; };
+			cout << *it << endl;
+			if (*it == e) {   entities.erase(it); break; };
 		}
 	}
 

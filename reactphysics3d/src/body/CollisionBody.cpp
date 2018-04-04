@@ -149,7 +149,7 @@ void CollisionBody::removeCollisionShape(const ProxyShape* proxyShape) {
 // Remove all the collision shapes
 void CollisionBody::removeAllCollisionShapes() {
 
-4    ProxyShape* current = mProxyCollisionShapes;
+    ProxyShape* current = mProxyCollisionShapes;
 
     // Look for the proxy shape that contains the collision shape in parameter
     while(current != NULL) {

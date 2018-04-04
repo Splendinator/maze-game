@@ -22,7 +22,7 @@ public:
 	void scale(Vector3);
 
 	void applySubSystems() { applyRenderer(); applyPhysics(); }
-	Vector3 getScale() { return meshScale; }
+	Vector3 getScale() const{ return meshScale; }
 
 private:
 	

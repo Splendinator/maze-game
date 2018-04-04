@@ -16,9 +16,11 @@ Renderer::Renderer(Window &parent) : OGLRenderer(parent)	{
 		(float)width / (float)height, 55.0f);
 
 	glEnable(GL_CULL_FACE);
-	
-	
-	
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+	glDepthMask(GL_TRUE);
+
+
 
 	init = true;
 }
@@ -27,12 +29,15 @@ Renderer::~Renderer(void)	{
 }
 
 
-void Renderer::RenderScene()	{
+void Renderer::RenderScene()
+{
+	glClearDepth(1.0f);
 	glClearColor(0.2f,0.2f,0.2f,1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	
 
 	glUseProgram(currentShader->GetProgram());
-	
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 	viewMatrix = player->getCamera().BuildViewMatrix();
 

@@ -81,7 +81,7 @@ void BroadPhaseAlgorithm::addMovedCollisionShape(int broadPhaseID) {
 // and that need to be tested again for broad-phase overlapping.
 void BroadPhaseAlgorithm::removeMovedCollisionShape(int broadPhaseID) {
 
-    assert(mNbNonUsedMovedShapes <= mNbMovedShapes);
+    //assert(mNbNonUsedMovedShapes <= mNbMovedShapes);
 
     // If less than the quarter of allocated elements of the non-static shapes IDs array
     // are used, we release some allocated memory

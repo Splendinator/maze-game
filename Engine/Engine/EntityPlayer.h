@@ -21,7 +21,7 @@ public:
 	//void rotate(Vector3 around, float deg);
 	//void scale(Vector3);
 
-	Camera getCamera() { 
+	Camera &getCamera() { 
 		camera.SetPosition(Vector3(
 			body->getTransform().getPosition().x,
 			body->getTransform().getPosition().y, 

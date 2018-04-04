@@ -58,7 +58,7 @@ DynamicsWorld::DynamicsWorld(const Vector3 &gravity)
 
 // Destructor
 DynamicsWorld::~DynamicsWorld() {
-
+	
     // Destroy all the joints that have not been removed
     std::set<Joint*>::iterator itJoints;
     for (itJoints = mJoints.begin(); itJoints != mJoints.end();) {
