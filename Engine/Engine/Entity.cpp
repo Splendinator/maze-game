@@ -11,6 +11,7 @@ Entity::Entity(Mesh *m, Renderer* r)
 {
 	mesh = m;
 	renderer = r;
+	cout << "Hello";
 	r->addEntity(this);
 }
 

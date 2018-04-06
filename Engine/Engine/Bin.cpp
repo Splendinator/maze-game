@@ -54,7 +54,15 @@ T *Bin<T>::add(const T &element) {
 template<class T>
 void Bin<T>::remove(T *element)
 {
-	//v.erase(0);
+	for (vector<T *>::iterator it = v.begin(); it != v.end(); ++it) {
+		if (*it == element) {
+			int index = (*it) - (T*)start;
+			inUse[index] = false;
+			delete *it;
+			v.erase(it);
+			break;
+		};
+	}
 }
 
 template class Bin<EntityPhysics>;

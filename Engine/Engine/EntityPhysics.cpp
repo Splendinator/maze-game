@@ -20,6 +20,7 @@ EntityPhysics::EntityPhysics(Mesh *mesh, Renderer *r, rp3d::DynamicsWorld *world
 	body->addCollisionShape(collisionShape, rp3d::Transform(v, q), 20);
 
 	meshScale = Vector3(1, 1, 1);
+
 }
 
 

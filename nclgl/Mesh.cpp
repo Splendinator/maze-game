@@ -29,7 +29,7 @@ Mesh ::~Mesh(void) {
 
 }
 
-Mesh * Mesh::GenerateCube(int textureScale) {
+Mesh * Mesh::GenerateCube() {
 	Mesh * m = new Mesh();
 	m->numVertices = 36;
 
@@ -73,41 +73,41 @@ Mesh * Mesh::GenerateCube(int textureScale) {
 
 	m -> textureCoords = new Vector2[m -> numVertices];
 	m->textureCoords[0] = Vector2(0, 0);
-	m->textureCoords[1] = Vector2(textureScale, 0);
-	m->textureCoords[2] = Vector2(textureScale, textureScale);
-	m->textureCoords[3] = Vector2(0, textureScale);
-	m->textureCoords[4] = Vector2(textureScale, 0);
-	m->textureCoords[5] = Vector2(textureScale, textureScale);
-	m->textureCoords[6] = Vector2(0, textureScale);
-	m->textureCoords[7] = Vector2(textureScale, 0);
-	m->textureCoords[8] = Vector2(textureScale, textureScale);
-	m->textureCoords[9] = Vector2(0, textureScale);
+	m->textureCoords[1] = Vector2(1, 0);
+	m->textureCoords[2] = Vector2(1, 1);
+	m->textureCoords[3] = Vector2(0, 1);
+	m->textureCoords[4] = Vector2(1, 0);
+	m->textureCoords[5] = Vector2(1, 1);
+	m->textureCoords[6] = Vector2(0, 1);
+	m->textureCoords[7] = Vector2(1, 0);
+	m->textureCoords[8] = Vector2(1, 1);
+	m->textureCoords[9] = Vector2(0, 1);
 	m->textureCoords[10] = Vector2(0, 0);
-	m->textureCoords[11] = Vector2(textureScale, 0);
+	m->textureCoords[11] = Vector2(1, 0);
 	m->textureCoords[12] = Vector2(0, 0);
-	m->textureCoords[13] = Vector2(textureScale, textureScale);
-	m->textureCoords[14] = Vector2(0, textureScale);
+	m->textureCoords[13] = Vector2(1, 1);
+	m->textureCoords[14] = Vector2(0, 1);
 	m->textureCoords[15] = Vector2(0, 0);
 	m->textureCoords[16] = Vector2(0, 0);
 	m->textureCoords[17] = Vector2(0, 0);
-	m->textureCoords[18] = Vector2(0, textureScale);
+	m->textureCoords[18] = Vector2(0, 1);
 	m->textureCoords[19] = Vector2(0, 0);
-	m->textureCoords[20] = Vector2(textureScale, 0);
-	m->textureCoords[21] = Vector2(textureScale, textureScale);
+	m->textureCoords[20] = Vector2(1, 0);
+	m->textureCoords[21] = Vector2(1, 1);
 	m->textureCoords[22] = Vector2(0, 0);
-	m->textureCoords[23] = Vector2(0, textureScale);
+	m->textureCoords[23] = Vector2(0, 1);
 	m->textureCoords[24] = Vector2(0, 0);
-	m->textureCoords[25] = Vector2(textureScale, textureScale);
-	m->textureCoords[26] = Vector2(textureScale, 0);
-	m->textureCoords[27] = Vector2(textureScale, textureScale);
-	m->textureCoords[28] = Vector2(textureScale, 0);
+	m->textureCoords[25] = Vector2(1, 1);
+	m->textureCoords[26] = Vector2(1, 0);
+	m->textureCoords[27] = Vector2(1, 1);
+	m->textureCoords[28] = Vector2(1, 0);
 	m->textureCoords[29] = Vector2(0, 0);
-	m->textureCoords[30] = Vector2(textureScale, textureScale);
+	m->textureCoords[30] = Vector2(1, 1);
 	m->textureCoords[31] = Vector2(0, 0);
-	m->textureCoords[32] = Vector2(0, textureScale);
-	m->textureCoords[33] = Vector2(textureScale, textureScale);
-	m->textureCoords[34] = Vector2(0, textureScale);
-	m->textureCoords[35] = Vector2(textureScale, 0);
+	m->textureCoords[32] = Vector2(0, 1);
+	m->textureCoords[33] = Vector2(1, 1);
+	m->textureCoords[34] = Vector2(0, 1);
+	m->textureCoords[35] = Vector2(1, 0);
 
 	m -> BufferData();
 

@@ -3,6 +3,7 @@
 #include "reactphysics3d.h"
 #include "Entity.h"
 #include "Mesh.h"
+#include "Bin.h"
 
 
 class EntityPhysics : public Entity
@@ -31,6 +32,7 @@ private:
 	rp3d::Transform transform;
 	
 	Vector3 meshScale;
+	Bin<EntityPhysics> *bulletsBin;
 
 protected:
 

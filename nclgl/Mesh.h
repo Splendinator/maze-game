@@ -11,7 +11,7 @@ public:
 	~Mesh(void);
 
 	virtual void Draw();
-	static Mesh * GenerateCube(int textureScale);
+	static Mesh * GenerateCube();
 
 	void SetTexture(GLuint tex) { texture = tex; }
 	GLuint GetTexture() { return texture; }

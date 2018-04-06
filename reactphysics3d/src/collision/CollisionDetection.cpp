@@ -411,7 +411,7 @@ void CollisionDetection::removeProxyCollisionShape(ProxyShape* proxyShape) {
 
     // Remove the body from the broad-phase
     mBroadPhaseAlgorithm.removeProxyCollisionShape(proxyShape);
-}
+ }
 
 // Called by a narrow-phase collision algorithm when a new contact has been found
 void CollisionDetection::notifyContact(OverlappingPair* overlappingPair, const ContactPointInfo& contactInfo) {

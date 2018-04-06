@@ -1,27 +1,9 @@
 ﻿  Mesh.cpp
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(76): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(77): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(78): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(79): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(80): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(81): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(82): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(83): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(84): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(86): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(88): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(89): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(93): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(95): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(96): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(98): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(100): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(101): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(102): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(103): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(105): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(107): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(108): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(109): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-c:\users\dominic\desktop\big folder of userfulness\uni\csc3224\engine\nclgl\mesh.cpp(110): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  Window.cpp
+  Shader.cpp
+  SceneNode.cpp
+  OGLRenderer.cpp
+  Camera.cpp
   nclgl.vcxproj -> C:\Users\Dominic\Desktop\Big Folder of Userfulness\Uni\CSC3224\Engine\Engine\Debug\nclgl.lib
