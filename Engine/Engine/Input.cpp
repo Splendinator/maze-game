@@ -9,6 +9,7 @@ Input::Input(Renderer *renderer, rp3d::DynamicsWorld * world, EntityPlayer * pla
 	w = world;
 	r = renderer;
 	bullet = new EntityPhysics(m, r, w, s);
+
 }
 
 Input::~Input()
@@ -22,7 +23,6 @@ void Input::handleInput(float timeStep)
 
 	if (p->getCamera().GetPitch() > MAX_PITCH) p->getCamera().SetPitch(MAX_PITCH);
 	if (p->getCamera().GetPitch() < MIN_PITCH) p->getCamera().SetPitch(MIN_PITCH);
-	cout << p->getCamera().GetPitch() << endl;
 
 	rp3d::Vector3 direction = rp3d::Vector3(-sin(p->getCamera().GetYaw() / 360 * 2 * PI), 0, -cos(p->getCamera().GetYaw() / 360 * 2 * PI));
 	rp3d::Vector3 aiming = (direction * (1 - abs(p->getCamera().GetPitch()) / 90) + rp3d::Vector3(0, p->getCamera().GetPitch() / 90, 0)).getUnit();
@@ -56,7 +56,7 @@ void Input::handleInput(float timeStep)
 	}
 
 	if (Window::GetMouse()->ButtonDown(MOUSE_LEFT) && !Window::GetMouse()->ButtonHeld(MOUSE_LEFT)) {
-		EntityPhysics *temp = bullets.add(*bullet);
+		EntityPhysics *temp = bullets.add(bullet);
 		temp->applySubSystems();
 		rp3d::Vector3 bulletSpawn = p->body->getTransform().getPosition() + aiming * BULLET_SPAWN_DIST;
 		temp->move(Vector3(bulletSpawn.x, bulletSpawn.y, bulletSpawn.z));
@@ -69,7 +69,8 @@ void Input::handleInput(float timeStep)
 
 	for (vector<BulletLifeSpan>::iterator it = bulletsAlive.begin(); it != bulletsAlive.end(); ++it){
 		if (it->expiryDate < timeElapsed) {
-			//bullets.remove(it->bullet); //***TODO: DELETING PHYSICS OBJECTS CAUSES REACTPHYSICS3d ERRROR***
+			
+			bullets.remove(it->bullet); //***TODO: DELETING PHYSICS OBJECTS CAUSES REACTPHYSICS3d ERRROR***
 			bulletsAlive.erase(it);
 			break;
 		}
@@ -82,5 +83,8 @@ void Input::handleInput(float timeStep)
 	if (hVelocity > MAX_SPEED) {
 		p->body->setLinearVelocity(rp3d::Vector3(p->body->getLinearVelocity().x * (MAX_SPEED / hVelocity), p->body->getLinearVelocity().y, p->body->getLinearVelocity().z * (MAX_SPEED / hVelocity)));
 	}
+
+	//Sound
+	sound.playFootsteps(p->body->getLinearVelocity().length() < 20.f || !onFloor );
 
 }

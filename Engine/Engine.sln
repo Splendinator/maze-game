@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Tutorial1.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reactphysics3d", "..\reactphysics3d\reactphysics3d.vcxproj", "{46237E1A-6739-33F3-92EE-E621AFC474EE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "freetype", "..\freetype\freetype.vcxproj", "{6A996604-BD08-37D7-BABA-465400B41A07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -65,6 +67,18 @@ Global
 		{46237E1A-6739-33F3-92EE-E621AFC474EE}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
 		{46237E1A-6739-33F3-92EE-E621AFC474EE}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
 		{46237E1A-6739-33F3-92EE-E621AFC474EE}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.Debug|Win32.Build.0 = Debug|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.Debug|x64.ActiveCfg = Debug|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.MinSizeRel|Win32.ActiveCfg = MinSizeRel|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.MinSizeRel|Win32.Build.0 = MinSizeRel|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.MinSizeRel|x64.ActiveCfg = MinSizeRel|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.Release|Win32.ActiveCfg = Release|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.Release|Win32.Build.0 = Release|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.Release|x64.ActiveCfg = Release|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
+		{6A996604-BD08-37D7-BABA-465400B41A07}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

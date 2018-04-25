@@ -65,12 +65,9 @@ void randomPassage(node *node, unsigned int index, int n, int e, int s, int w) {
 	else  /*(random < n + e + s + w)*/	change(node, index, WEST);
 }
 
-void IO::genMaze(Bin<EntityPhysics>* bin, const EntityPhysics & e, unsigned int seed)
+void IO::genMaze(Bin<EntityPhysics>* bin, EntityPhysics *e, unsigned int seed)
 {
-	cout << &e << " -- E MEMORY LOCATION";
 	srand(seed);
-
-	cout << e.getScale();
 
 	bool map[MAP_SIZE*MAP_SIZE];
 	node node[nodes * nodes];
@@ -117,7 +114,7 @@ void IO::genMaze(Bin<EntityPhysics>* bin, const EntityPhysics & e, unsigned int 
 			if (map[i + j*MAP_SIZE]) {
 				temp = bin->add(e);
 				temp->applySubSystems();
-				temp->move(Vector3(i*e.getScale().x * 2 , e.getScale().y, -j*e.getScale().z * 2));
+				temp->move(Vector3(i*e->getScale().x * 2 , e->getScale().y, -j*e->getScale().z * 2));
 				temp->body->setType(rp3d::STATIC);
 				
 			}

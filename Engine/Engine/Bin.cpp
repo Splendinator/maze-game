@@ -39,14 +39,14 @@ T * Bin<T>::freeSpot()
 }
 
 template<class T>
-T *Bin<T>::add(const T &element) {
+T *Bin<T>::add(T *element) {
 	T *pointer = freeSpot();
-
 	if (pointer) {
-		memcpy(pointer, &element, sizeof(element));
+		memcpy(pointer, element, sizeof(*element));
 		v.insert(v.end(), pointer);
 		inUse[pointer - start] = true;
-		
+	}
+	else {
 	}
 	return pointer;
 }
@@ -54,13 +54,16 @@ T *Bin<T>::add(const T &element) {
 template<class T>
 void Bin<T>::remove(T *element)
 {
+
+
+
 	for (vector<T *>::iterator it = v.begin(); it != v.end(); ++it) {
 		if (*it == element) {
 			int index = (*it) - (T*)start;
 			inUse[index] = false;
-			delete *it;
+			(*it)->~T();
 			v.erase(it);
-			break;
+			return;
 		};
 	}
 }

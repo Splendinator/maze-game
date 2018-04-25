@@ -12,7 +12,7 @@ class Entity
 public:
 	Entity();
 	Entity(Mesh *m, Renderer *r);
-	~Entity();
+	virtual ~Entity();
 
 	virtual void move(Vector3);
 	virtual void rotate(Vector3 around, float deg);
@@ -23,9 +23,10 @@ public:
 
 	virtual void applySubSystems() { applyRenderer(); }
 
-private:
-	Mesh *mesh; //Mesh used.
 
+private:
+
+	Mesh *mesh; //Mesh used.
 	vector<Entity *>::iterator rendererIndex; //Index of mesh in renderer.
 
 	

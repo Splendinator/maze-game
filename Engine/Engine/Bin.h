@@ -15,7 +15,7 @@ public:
 	std::vector<T *> *getVector() { return &v; }
 
 	//void *operator [] (size_t index) { return start + size*index; }
-	T *add(const T &element);	
+	T *add(T *element);	
 	void remove(T *element);
 
 

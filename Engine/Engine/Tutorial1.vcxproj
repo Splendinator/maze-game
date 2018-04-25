@@ -41,12 +41,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\..\GLEW\include;..\..\SOIL;$(IncludePath);../../NCLGL;../../reactphysics3d/src</IncludePath>
-    <LibraryPath>..\..\GLEW\lib\$(Configuration);..\..\SOIL\$(Configuration)\;..\$(Configuration)\;$(LibraryPath);..\..\reactphysics3d\Debug</LibraryPath>
+    <IncludePath>..\..\GLEW\include;..\..\SOIL;$(IncludePath);../../NCLGL;../../reactphysics3d/src;../../FMOD/include;../../freetype/include</IncludePath>
+    <LibraryPath>..\..\GLEW\lib\$(Configuration);..\..\SOIL\$(Configuration)\;..\$(Configuration)\;$(LibraryPath);..\..\reactphysics3d\Debug;../../FMOD/lib;../../freetype/Debug</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>..\..\GLEW\include;..\..\SOIL;$(IncludePath);../../NCLGL;../../reactphysics3d/src</IncludePath>
-    <LibraryPath>..\..\GLEW\lib\$(Configuration);..\..\SOIL\$(Configuration)\;..\$(Configuration)\;$(LibraryPath);..\..\reactphysics3d\Debug</LibraryPath>
+    <IncludePath>..\..\GLEW\include;..\..\SOIL;$(IncludePath);../../NCLGL;../../reactphysics3d/src;../../FMOD/include</IncludePath>
+    <LibraryPath>..\..\GLEW\lib\$(Configuration);..\..\SOIL\$(Configuration)\;..\$(Configuration)\;$(LibraryPath);..\..\reactphysics3d\Debug;../../FMOD/lib</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -81,6 +81,7 @@
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bin.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="IO.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Sound.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Shaders\TexturedFragment.glsl" />

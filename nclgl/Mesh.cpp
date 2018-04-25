@@ -90,9 +90,11 @@ Mesh * Mesh::GenerateCube() {
 	m->textureCoords[15] = Vector2(0, 0);
 	m->textureCoords[16] = Vector2(0, 0);
 	m->textureCoords[17] = Vector2(0, 0);
-	m->textureCoords[18] = Vector2(0, 1);
-	m->textureCoords[19] = Vector2(0, 0);
-	m->textureCoords[20] = Vector2(1, 0);
+	
+	m->textureCoords[18] = Vector2(1, 1);
+	m->textureCoords[19] = Vector2(1, 0);
+	m->textureCoords[20] = Vector2(0, 0);
+
 	m->textureCoords[21] = Vector2(1, 1);
 	m->textureCoords[22] = Vector2(0, 0);
 	m->textureCoords[23] = Vector2(0, 1);
@@ -105,9 +107,10 @@ Mesh * Mesh::GenerateCube() {
 	m->textureCoords[30] = Vector2(1, 1);
 	m->textureCoords[31] = Vector2(0, 0);
 	m->textureCoords[32] = Vector2(0, 1);
-	m->textureCoords[33] = Vector2(1, 1);
-	m->textureCoords[34] = Vector2(0, 1);
-	m->textureCoords[35] = Vector2(1, 0);
+
+	m->textureCoords[33] = Vector2(0, 1);
+	m->textureCoords[34] = Vector2(1, 1);
+	m->textureCoords[35] = Vector2(0, 0);
 
 	m -> BufferData();
 

@@ -161,7 +161,7 @@ void CollisionBody::removeAllCollisionShapes() {
             mWorld.mCollisionDetection.removeProxyCollisionShape(current);
         }
 
-        current->~ProxyShape();
+		current->~ProxyShape();
         mWorld.mMemoryAllocator.release(current, sizeof(ProxyShape));
 
         // Get the next element in the list

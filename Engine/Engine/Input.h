@@ -3,6 +3,7 @@
 #include "Renderer.h"
 #include "EntityPlayer.h"
 #include "Bin.h"
+#include "Sound.h"
 #include <vector>
 
 struct BulletLifeSpan {
@@ -48,18 +49,20 @@ private:
 	vector<BulletLifeSpan> bulletsAlive;
 
 
-	const float MOVEMENT_SPEED = 400;
-	const float MAX_SPEED = 40;
+	const float MOVEMENT_SPEED = 600;
+	const float MAX_SPEED = 60; 
 	const float AIR_MULTIPLIER = 0.1;
-	const float SENSITIVITY = 5;
+	const float SENSITIVITY = 2;
 	const float ON_FLOOR_THRESHOLD = 3.8;
-	const float JUMP_HEIGHT = 35;
+	const float JUMP_HEIGHT = 35; 
 	const float BULLET_SPAWN_DIST = 10;
-	const float BULLET_SHOOT_FORCE = 200000;
+	const float BULLET_SHOOT_FORCE = 800000;
 	const float IN_AIR_SLOWDOWN = 0.9;
 	const float MAX_PITCH = 90;
 	const float MIN_PITCH = -90;
 	const float BULLET_LIFESPAN = 3;
+
+	Sound sound;
 	
 };
 
