@@ -17,6 +17,7 @@ public:
 	//void *operator [] (size_t index) { return start + size*index; }
 	T *add(T *element);	
 	void remove(T *element);
+	void empty();
 
 
 

@@ -25,6 +25,10 @@ public:
 	void applySubSystems() { applyRenderer(); applyPhysics(); }
 	Vector3 getScale() const{ return meshScale; }
 
+	void lookAt(Vector3 v);
+
+	rp3d::Vector3 foward();
+
 private:
 	
 	rp3d::DynamicsWorld *world;

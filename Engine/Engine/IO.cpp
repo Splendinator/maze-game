@@ -65,11 +65,12 @@ void randomPassage(node *node, unsigned int index, int n, int e, int s, int w) {
 	else  /*(random < n + e + s + w)*/	change(node, index, WEST);
 }
 
-void IO::genMaze(Bin<EntityPhysics>* bin, EntityPhysics *e, unsigned int seed)
+
+Map *IO::genMaze(Bin<EntityPhysics>* bin, Bin<EntityAI> *enemyBin, EntityPhysics *e, EntityAI *ai, unsigned int seed)
 {
 	srand(seed);
 
-	bool map[MAP_SIZE*MAP_SIZE];
+	bool *map = new bool[MAP_SIZE*MAP_SIZE];
 	node node[nodes * nodes];
 	int aring;
 
@@ -107,7 +108,7 @@ void IO::genMaze(Bin<EntityPhysics>* bin, EntityPhysics *e, unsigned int seed)
 	}
 	
 
-	//*** POPULATE BIN ***
+	//*** POPULATE MAP BIN ***
 	EntityPhysics *temp;
 	for (int i = 0; i < MAP_SIZE; ++i) {
 		for (int j = 0; j < MAP_SIZE; ++j) {
@@ -121,7 +122,34 @@ void IO::genMaze(Bin<EntityPhysics>* bin, EntityPhysics *e, unsigned int seed)
 		}
 	}
 
+	EntityAI *ait;
+	for (int i = 0; i < MAP_SIZE; ++i) {
+		for (int j = 0; j < MAP_SIZE; ++j) {
+			if (!map[i + j*MAP_SIZE] && i + j > 8) {
 
+				if (!(rand() % ENEMY_CHANCE)) {
+					ait = enemyBin->add(ai);
+					ait->applySubSystems();
+
+					ait->body->setMass(400.f);
+					rp3d::Material m = ait->body->getMaterial();
+					m.setFrictionCoefficient(5.f);	//Doesn't slide around
+					m.setRollingResistance(INFINITY);
+					m.setBounciness(0.5f);	//Doesn't bounce
+					ait->body->setMaterial(m);
+					ait->moves = new vector<Vector3>;
+
+					ait->move(Vector3(i*e->getScale().x * 2, e->getScale().y + 5.f, -j*e->getScale().z * 2));
+				}
+			}
+		}
+	}
+
+
+
+	Map *m = new Map(MAP_SIZE, e->getScale().x * 2, map);
+
+	return m;
 }
 
 IO::~IO()

@@ -26,7 +26,7 @@ Renderer::Renderer(Window &parent) : OGLRenderer(parent)	{
 	error = FT_Init_FreeType(&library);
 	if (error) { cout << "ERROR: initialising FreeType library" << endl; }
 	
-	error = FT_New_Face(library, "/Windows/Fonts/micross.ttf", 0, &font);
+	error = FT_New_Face(library, "../../Fonts/micross.ttf", 0, &font);
 	if (error) { cout << "ERROR: loading font file" << endl; }
 
 	FT_Set_Pixel_Sizes(
@@ -122,6 +122,54 @@ void Renderer::drawText(string s, int sX, int sY, Vector3 colour)
 		}
 
 		sX += slot->bitmap.width + LETTER_GAP_PIXELS;
+	}
+
+	glBindTexture(GL_TEXTURE_2D, texID);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, UI_WIDTH, UI_HEIGHT, 0, GL_RGBA, GL_FLOAT, color);
+}
+
+void Renderer::drawCrosshair(Vector4 colour, Crosshair c)
+{
+	switch (c) {
+	case (CROSSHAIR_DEFAULT):
+		int w,h;
+		for (int i = -15; i < 15; ++i) {
+			h = w = UI_HEIGHT * UI_WIDTH * 4 / 2 + UI_WIDTH * 4 / 2;	//Centre
+			
+			(i < 0) ? (w -= 4 * (abs(i+1) + 5)) : (w += 4 * (i + 5));
+			(i < 0) ? (h -= 4 * UI_WIDTH * (abs(i+1) + 5)) : (h += 4 * UI_WIDTH * (i + 5));
+
+			color[w    ] = colour.x;
+			color[w + 1] = colour.y;
+			color[w + 2] = colour.z;
+			color[w + 3] = colour.w;
+
+			color[h    ] = colour.x;
+			color[h + 1] = colour.y;
+			color[h + 2] = colour.z;
+			color[h + 3] = colour.w;
+
+		}
+
+		w = UI_HEIGHT * UI_WIDTH * 4 / 2 + UI_WIDTH * 4 / 2;
+
+		color[w    ] = colour.x;
+		color[w + 1] = colour.y;
+		color[w + 2] = colour.z;
+		color[w + 3] = colour.w;
+
+		break;
+	}
+
+
+	glBindTexture(GL_TEXTURE_2D, texID);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, UI_WIDTH, UI_HEIGHT, 0, GL_RGBA, GL_FLOAT, color);
+}
+
+void Renderer::clearUI(int sx, int sy, int width, int height)
+{
+	for (int i = sy * UI_WIDTH * sx * 4; i < sy * (UI_WIDTH + height) * sx * 4; i += UI_WIDTH) {
+		memset(color+i, 0, width*4);
 	}
 
 	glBindTexture(GL_TEXTURE_2D, texID);

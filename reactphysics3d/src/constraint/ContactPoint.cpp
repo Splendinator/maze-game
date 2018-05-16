@@ -48,6 +48,8 @@ ContactPoint::ContactPoint(const ContactPointInfo& contactInfo)
     mFrictionVectors[0] = Vector3(0, 0, 0);
     mFrictionVectors[1] = Vector3(0, 0, 0);
 
+	if (mPenetrationDepth <= 0) mPenetrationDepth = 0.00001;
+
     assert(mPenetrationDepth > 0.0);
 
 }

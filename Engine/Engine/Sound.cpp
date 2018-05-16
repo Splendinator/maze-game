@@ -14,6 +14,9 @@ Sound::Sound()
 	c->setPaused(true);
 	s->update();
 	
+
+
+
 }
 
 void Sound::playFootsteps(bool b)

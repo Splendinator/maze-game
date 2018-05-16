@@ -19,6 +19,7 @@ public:
 	virtual void scale(Vector3);
 
 	Mesh *getMesh() const { return mesh; }
+	void setMesh(Mesh *m) { mesh = m; }
 	virtual Matrix4 getModelMatrix() { return modelMatrix; }
 
 	virtual void applySubSystems() { applyRenderer(); }

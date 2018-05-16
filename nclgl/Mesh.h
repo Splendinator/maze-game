@@ -12,6 +12,7 @@ public:
 
 	virtual void Draw();
 	static Mesh * GenerateCube();
+	static Mesh * GenerateEnemy();
 
 	void SetTexture(GLuint tex) { texture = tex; }
 	GLuint GetTexture() { return texture; }

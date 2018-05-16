@@ -58,7 +58,10 @@ void Input::handleInput(float timeStep)
 	if (Window::GetMouse()->ButtonDown(MOUSE_LEFT) && !Window::GetMouse()->ButtonHeld(MOUSE_LEFT)) {
 		EntityPhysics *temp = bullets.add(bullet);
 		temp->applySubSystems();
-		rp3d::Vector3 bulletSpawn = p->body->getTransform().getPosition() + aiming * BULLET_SPAWN_DIST;
+
+		//aiming.y += 0.01f; //Slight upwards momentum to compensate for gravity;
+		rp3d::Vector3 bulletSpawn = *(rp3d::Vector3 *)&p->getCamera().GetPosition() + aiming * BULLET_SPAWN_DIST;
+		
 		temp->move(Vector3(bulletSpawn.x, bulletSpawn.y, bulletSpawn.z));
 		temp->body->applyForceToCenterOfMass(aiming * BULLET_SHOOT_FORCE);
 		BulletLifeSpan b;
@@ -68,9 +71,18 @@ void Input::handleInput(float timeStep)
 	}
 
 	for (vector<BulletLifeSpan>::iterator it = bulletsAlive.begin(); it != bulletsAlive.end(); ++it){
+		
+		
 		if (it->expiryDate < timeElapsed) {
 			
-			bullets.remove(it->bullet); //***TODO: DELETING PHYSICS OBJECTS CAUSES REACTPHYSICS3d ERRROR***
+			bullets.remove(it->bullet);
+			bulletsAlive.erase(it);
+			break;
+		}
+		colCallback c;
+		w->testCollision(it->bullet->body, &c);
+		if (c.collided) {
+			bullets.remove(it->bullet);
 			bulletsAlive.erase(it);
 			break;
 		}

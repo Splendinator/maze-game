@@ -9,6 +9,7 @@ class Sound
 private:
 	FMOD::System *s;
 	FMOD::Sound *footstep;
+	FMOD::Sound *roar;
 	FMOD::Channel *c = 0;
 	FMOD_RESULT r;
 

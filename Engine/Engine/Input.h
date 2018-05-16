@@ -2,6 +2,7 @@
 #include "reactphysics3d.h"
 #include "Renderer.h"
 #include "EntityPlayer.h"
+
 #include "Bin.h"
 #include "Sound.h"
 #include <vector>
@@ -21,6 +22,16 @@ class callback : public rp3d::RaycastCallback
 	}
 };
 
+class colCallback : public rp3d::CollisionCallback
+{
+public:
+	bool collided = false;
+	void notifyContact(const rp3d::ContactPointInfo& contactPointInfo) {
+		collided = true;
+	}
+};
+
+
 class Input
 {
 public:
@@ -29,30 +40,33 @@ public:
 
 	void handleInput(float timeStep);
 
+	//Vector of all currently alive bullets;
+	vector<BulletLifeSpan> bulletsAlive;
+	Bin<EntityPhysics> bullets = Bin<EntityPhysics>(sizeof(EntityPhysics), 100);
+
 private:
 	EntityPlayer *p;
 	rp3d::DynamicsWorld *w;
 	Renderer *r;
 
-	Bin<EntityPhysics> bullets = Bin<EntityPhysics>(sizeof(EntityPhysics), 100);
+
 
 	//Bullet
 	Mesh *m = Mesh::GenerateCube();
-	rp3d::SphereShape *s = new rp3d::SphereShape(1);;
+	rp3d::SphereShape *s = new rp3d::SphereShape(2.f);;
 	EntityPhysics *bullet;
 
 
 	//Time elapsed since program started
 	float timeElapsed = 0;
 
-	//Vector of all currently alive bullets;
-	vector<BulletLifeSpan> bulletsAlive;
+
 
 
 	const float MOVEMENT_SPEED = 600;
 	const float MAX_SPEED = 60; 
 	const float AIR_MULTIPLIER = 0.1;
-	const float SENSITIVITY = 2;
+	const float SENSITIVITY = 1;
 	const float ON_FLOOR_THRESHOLD = 3.8;
 	const float JUMP_HEIGHT = 35; 
 	const float BULLET_SPAWN_DIST = 10;

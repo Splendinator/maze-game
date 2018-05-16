@@ -1,5 +1,6 @@
 #include "Bin.h"
 #include "EntityPhysics.h"
+#include "EntityAI.h"
 
 template <class T>
 Bin<T>::Bin()
@@ -68,5 +69,20 @@ void Bin<T>::remove(T *element)
 	}
 }
 
+template<class T>
+void Bin<T>::empty()
+{
+	s:
+	for (vector<T *>::iterator it = v.begin(); it != v.end(); ++it) {
+			int index = (*it) - (T*)start;
+			inUse[index] = false;
+			(*it)->~T();
+			v.erase(it);
+			goto s;
+	}
+	return;
+}
+
 template class Bin<EntityPhysics>;
+template class Bin<EntityAI>;
 template class Bin<int>;
