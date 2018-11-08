@@ -21,7 +21,7 @@ std::chrono::duration<int, std::ratio<1, 1000000>> timeStep = std::chrono::durat
 std::chrono::duration<int, std::ratio<1, 1000000>> debugTimeStep = std::chrono::duration<int, std::ratio<1, 1000000>>((int)(0.2 * 1000000));
 
 //Renderer
-Window window = Window("Game!", 1920, 1080, false);
+Window window = Window("Game!", 1600, 900, false);
 Renderer renderer = Renderer(window);
 
 //Meshes
@@ -381,10 +381,10 @@ int startUp() {
 
 
 int main() {
-	int x = 2;
-	while (x == 2) {
-		x = startUp();
-	}
+
+	
+	return startUp();
+	
 	
 }
 

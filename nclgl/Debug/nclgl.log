@@ -1,2 +1,18 @@
-﻿  Mesh.cpp
-  nclgl.vcxproj -> C:\Users\Dominic\Desktop\Big Folder of Userfulness\Uni\CSC3224\Engine\Engine\Debug\nclgl.lib
+﻿  Window.cpp
+  Shader.cpp
+  SceneNode.cpp
+  Quaternion.cpp
+  OGLRenderer.cpp
+  OBJMesh.cpp
+  Mouse.cpp
+  Mesh.cpp
+  MD5Node.cpp
+  MD5Mesh.cpp
+  MD5FileData.cpp
+  MD5Anim.cpp
+  Matrix4.cpp
+  Keyboard.cpp
+  GameTimer.cpp
+  Camera.cpp
+  Generating Code...
+  nclgl.vcxproj -> C:\Users\Dominic\Desktop\maze-game\Engine\Debug\nclgl.lib
